@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository is a reproduction of ActiveStorage/ActiveRecord combination bug.
 
-Things you may want to cover:
+## Steps to reproduce:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Create a model with `record_timestamps = false`.
+- Add `has_one_attached` relation to the model.
+- Call `model_instance.attach(file)`. This will update model's updated_at.
